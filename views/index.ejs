@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <title>Car Management Dashboard</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar bg-white">
+            <div id="logo-navbar"></div>
+            <img id="hamburger-menu" src="images/hamburger-menu.png" alt="">
+            <div class="search-bar">
+                <div class="input-group">
+                    <input type="text" id="inputCapacity" class="form-control pr-5" placeholder="&#xF002; Search"
+                        style="font-family:Arial, FontAwesome" aria-label="" aria-describedby="basic-addon2" />
+                    <button type="button" class="btn-search font-14-bold">Search</button>
+                </div>
+                <div class="user-profile">
+                    <div id="user-pict"><b>U</b></div>
+                    <div class="font-14" id="name"> Unis Badri <i class="fa fa-chevron-down pl-2"></i></div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <aside>
+
+        <h5 class="alert alert-primary" role="alert">
+            <%= messages.info %>
+                <%= messages.update %>
+        </h5>
+
+        <div class="menu bg-blue">
+            <div id="logo"></div>
+            <div class="dashboard font-12 text-white"><img src="images/home.png" alt="">Dashboard</div>
+            <div class="cars font-12-bold text-white"><img src="images/cars.png" alt="">Cars</div>
+        </div>
+        <div class="menu-aside bg-white">
+            <div id="menu-title" class="text-grey padding-left-24 font-14-bold">CARS</div>
+            <div id="sub-menu-list-car" class="padding-left-24 font-14-bold">List Car</div>
+        </div>
+    </aside>
+    <section id="link">
+        <div><a href="#" class="font-12-bold">Cars</a></div>
+        <i class="fa fa-chevron-right pl-2 pr-2" id="link-cars" style="color: #000000;"></i>
+        <div><a href="#" class="font-12 font-rubik">List Cars</a></div>
+
+        <h4 class="heading-list-car">List Car</h4>
+
+        <div class="add-car-section">
+            <a href="/cars/create" style="text-decoration: none;"><button type="button" class="btn-primary font-14-bold"
+                    id="add-cars-btn"><i class="fa fa-plus" aria-hidden="true"></i>Add
+                    New Car</button></a><br>
+        </div>
+
+        <div class="sort">
+            <a href="#" style="text-decoration: none;"><button type="button" class="btn-secondary font-14-bold"
+                    id="list-all">All</button></a>
+            <a href="#" style="text-decoration: none;"><button type="button" class="btn-secondary font-14-bold"
+                    id="list-all">Small</button></a>
+            <a href="#" style="text-decoration: none;"><button type="button" class="btn-secondary font-14-bold"
+                    id="list-all">Medium</button></a>
+            <a href="#" style="text-decoration: none;"><button type="button" class="btn-secondary font-14-bold"
+                    id="list-all">Large</button></a>
+        </div>
+    </section>
+    <section class="container-cars">
+        <% cars.forEach((car)=> { %>
+            <div class="col=lg-4 col-md-4 col-sm-12 mt-4">
+                <div class="card px-3" style="width: 18.4rem; box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);">
+                    <img src="<%= car.image %>" class="card-img-top img-fluid pt-3 pb-3" alt="image cars 1"
+                        style="height: 195px; border-radius: 3px; object-fit: cover;" />
+                    <div class="card-body" style="font-size: 14px">
+                        <p class="card-title" style="font-size: 14px;">
+                            <%= car.nama %>
+                        </p>
+                        <p class="font-16-bold">
+                            <%= car.price %>
+                        </p>
+                        <p class="card-text" style="height: 10px"><i class="fa fa-clock-o pr-2" aria-hidden="true"></i>
+                            Updated At <%= new Date(Date.parse(car.updatedAt)).toLocaleString('en-US', {
+                                timeZone: 'Asia/Jakarta' }); %>
+
+                        </p>
+                        <div class="btn-delete-edit pt-1">
+                            <a href="/cars/<%= car.id %>/delete" id="#btn-delete"
+                                class="btn btn-delete mt-4 font-14-bold "><i class="fa fa-trash-o pr-2"
+                                    aria-hidden="true"></i>Delete</a>
+                            <a href="/cars/<%= car.id %>/update" id="#btn-update"
+                                class="btn btn-success text-white mt-4 font-14-bold"><i
+                                    class="fa fa-pencil-square-o pr-2" aria-hidden="true"></i>Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+    </section>
+
+</body>
+
+<script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script>
+
+    const alertSuccess = document.getElementById('alert-success');
+    const messages = document.getElementsByClassName('messages');
+
+    if (messages) {
+        alertSuccess.style.display = 'block';
+    } else {
+        alertSuccess.style.display = 'none';
+    }
+
+</script>
+
+</html>

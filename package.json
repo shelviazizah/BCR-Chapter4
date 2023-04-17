@@ -1,0 +1,29 @@
+{
+  "name": "binar-sme-chapter-05-topic-02-restful-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cloudinary": "^1.36.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "multer": "^1.4.5-lts.1",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.31.0",
+    "sweetalert2": "^11.7.3"
+  },
+  "devDependencies": {
+    "@types/faker": "5.5.3",
+    "faker": "^5.5.3"
+  },
+  "description": "File [`index.js`](./index.js) adalah sebuah file yang berisi implementasi dari HTTP server yang menerapkan kaidah RESTful API yang ditulis menggunakan Express.js.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": ""
+}

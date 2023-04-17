@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+    <title>Car Management Dashboard</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="navbar bg-white">
+            <div id="logo-navbar"></div>
+            <img id="hamburger-menu" src="images/hamburger-menu.png" alt="">
+            <div class="search-bar">
+                <div class="input-group">
+                    <input type="text" id="inputCapacity" class="form-control pr-5" placeholder="&#xF002; Search"
+                        style="font-family:Arial, FontAwesome" aria-label="" aria-describedby="basic-addon2" />
+                    <button type="button" class="btn-search font-14-bold">Search</button>
+                </div>
+                <div class="user-profile">
+                    <div id="user-pict"><b>U</b></div>
+                    <div class="font-14" id="name"> Unis Badri <i class="fa fa-chevron-down pl-2"></i></div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <aside>
+        <div class="menu bg-blue">
+            <div id="logo"></div>
+            <div class="dashboard font-12 text-white"><img src="images/home.png" alt="">Dashboard</div>
+            <div class="cars font-12-bold text-white"><img src="images/cars.png" alt="">Cars</div>
+        </div>
+        <div class="menu-aside bg-white">
+            <div id="menu-title" class="text-grey padding-left-24 font-14-bold">CARS</div>
+            <div id="sub-menu-list-car" class="padding-left-24 font-14-bold">List Car</div>
+        </div>
+    </aside>
+    <section id="link">
+        <div><a href="#" class="font-12-bold">Cars</a></div>
+        <i class="fa fa-chevron-right pl-2 pr-2" id="link-cars" style="color: #000000;"></i>
+        <div><a href="#" class="font-12 font-12-bold">List Cars</a></div>
+        <i class="fa fa-chevron-right pl-2 pr-2" id="link-cars" style="color: #000000;"></i>
+        <div><a href="#" class="font-12 font-rubik">Add New Car</a></div>
+
+        <h4 class="heading-list-car">Add New Car</h4>
+    </section>
+
+    <form action="/cars" method="post" enctype="multipart/form-data">
+        <div class="input-new-car">
+            <div class="row">
+                <div class="col-sm-2 mb-3">
+                    <label for="name" class="col-form-label">Nama<span style="color: red;">*</span></label>
+                </div>
+                <div class="col-sm-10">
+                    <input class="form-control form-control-sm" type="text" name="nama" placeholder="Avanza"
+                        aria-label=".form-control-sm example">
+                </div>
+
+                <div class="col-sm-2 mb-3">
+                    <label for="rentperday" class="col-form-label">Sewa Per Hari<span
+                            style="color: red;">*</span></label>
+                </div>
+                <div class="col-sm-10">
+                    <input class="form-control form-control-sm" type="text" name="price" placeholder="Rp. 0"
+                        aria-label=".form-control-sm example">
+                </div>
+
+                <div class="col-sm-2 mb-3">
+                    <label for="size" class="col-form-label">Ukuran<span style="color: red;">*</span></label>
+                </div>
+                <div class="col-sm-10">
+                    <select class="form-select form-control-sm" name="ukuran" aria-label="Default select example">
+                        <option selected>Pilih Ukuran</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 mb-3">
+                    <label class="col-form-label" id="input-file" for="inputGroupFile02">Upload<span
+                            style="color: red;">*</span></label>
+                </div>
+                <div class="input-group1 col-sm-5">
+                    <div class="form-select form-control-sm upload">https://placeimg.com
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                    </div>
+                    <input type="file" class="form-control form-control-sm" name="image" id="inputGroupFile02"
+                        placeholder="">
+                </div>
+                <div class="col-sm-10" style="color:#8A8A8A; font-size: 10px; padding-left: 175px; margin-top: -10px;">
+                    File
+                    size max. 2MB
+                </div>
+            </div>
+        </div>
+
+        <input class="btn-secondary font-14-bold" id="cancel-cars" type="submit" value="cancel">
+        <input class="btn-primary font-14-bold" id="save-cars" type="submit" value="save">
+
+    </form>
+
+</body>
+
+</html>
